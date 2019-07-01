@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <h3>c:out</h3>
+      Escaped params in body text and tag attributes.
+      <br />
+      <pre>
+        In body text: &lt;c:out value="
+        <span th:text="${outParam}" />
+        "/&gt;&lt;br/&gt;
+In tags: &lt;input value="&lt;c:out value="
+        <span th:text="${outParam}" />
+        "/&gt;"/&gt;&lt;br/&gt;
+Message: \${message}
+      </pre>
+      In body text:
+      <span th:text="${message}">Message</span>
+      <br />
+      In tags:
+      <input th:value="${message}" />
+      <br />
+      Message:
+      <span th:text="${message}" />
+    </th:block>
+  </body>
+</html>

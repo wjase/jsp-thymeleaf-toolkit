@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <h3>c:url</h3>
+      Escaped urls adjusted with the current application context.
+      <br />
+      <pre>&lt;c:url value="/resources/text.txt" var="url"/&gt;
+&lt;spring:url value="/resources/text.txt" htmlEscape="true" var="springUrl" /&gt;
+JSTL URL: \${url}&lt;br/&gt;</pre>
+      <span th:text="${pageParams.put('url',@{/resources/text.txt})" />
+      <url value="/resources/text.txt" htmlEscape="true" var="springUrl" />
+      Spring URL:
+      <span th:text="${springUrl}" />
+      at
+      <span th:text="${time}" />
+      <br />
+      JSTL URL:
+      <span th:text="${url}" />
+      <br />
+    </th:block>
+  </body>
+</html>

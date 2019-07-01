@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="content">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+    <title>JSP2Thymeleaf Migration Sample Project</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div th:replace="includes/header::content" />
+    <div class="container">
+      <h2>Common JSTL Tags</h2>
+      <div th:replace="includes/fragments/cout::content" />
+      <div th:replace="includes/fragments/curl::content" />
+      <div th:replace="includes/fragments/cif::content" />
+      <div th:replace="includes/fragments/foreach_1::content" />
+      <div th:replace="includes/fragments/foreach_2::content" />
+      <div th:replace="includes/fragments/fortokens::content" />
+      <div th:replace="includes/fragments/choose::content" />
+      <div th:replace="includes/fragments/springform::content" />
+    </div>
+    <hr />
+    <div th:replace="includes/footer::content" />
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/webjars/jquery/3.1.1/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous" />
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js" />
+  </body>
+</html>

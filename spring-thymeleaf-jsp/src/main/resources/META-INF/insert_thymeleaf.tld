@@ -1,0 +1,21 @@
+/*
+* Copyright (c) 2016 Cybernostics Pty Ltd.
+* All rights reserved.
+*/
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Insert Thymeleaf</short-name>
+    <uri>/insertthymeleaf</uri>
+    <tag>
+        <name>fragment</name>
+        <tag-class>com.cybernostics.spring.thymeleaf.jsp.tag.InsertThymeleaFragmentfTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>name</name>
+        </attribute>
+        <attribute>
+            <name>fragment</name>
+        </attribute>
+    </tag>
+</taglib>

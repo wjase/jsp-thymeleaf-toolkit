@@ -1,0 +1,18 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <span th:fragment="content">
+      <footer>
+        This is an included footer with a JSP tag to give us something to convert.
+        <br />
+        Here it is:
+        <span th:text="${message}" />
+        .
+        <p>&amp;copy; Company 2016</p>
+      </footer>
+    </span>
+  </body>
+</html>

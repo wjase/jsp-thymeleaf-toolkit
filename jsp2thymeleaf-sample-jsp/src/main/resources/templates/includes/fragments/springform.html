@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+  <head>
+    <title>Registration Page (Spring Form)</title>
+  </head>
+  <body>
+    <h3>Spring Form</h3>
+    <span th:text="${pageParams.put('post_url',@{/somevalue})" />
+    <form th:object="user" class="form" method="POST" commandName="user" th:action="@{${post_url}}">
+      <table class="form-group">
+        <tr>
+          <td>User Name :</td>
+          <td>
+            <input th:field="*{name}" class="form-control" />
+          </td>
+        </tr>
+        <tr>
+          <td>Password :</td>
+          <td>
+            <input th:field="*{password}" class="form-control" />
+          </td>
+        </tr>
+        <tr>
+          <td>Confirm Password :</td>
+          <td>
+            <input th:field="*{confirmPassword}" type="password" class="form-control" />
+          </td>
+        </tr>
+        <tr>
+          <td>Gender :</td>
+          <td>
+            <input th:field="*{gender}" type="radiobutton" value="M" class="form-check-input" />
+            <label path="gender" class="form-check-label">M</label>
+            <input th:field="*{gender}" type="radiobutton" value="F" class="form-check-input" />
+            <label path="gender" class="form-check-label">F</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Country :</td>
+          <td>
+            <select th:field="country" class="form-control">
+              <option value="0" label="Select" />
+              <span th:each="item : ${countryList}">
+                <option th:value="${item.countryId}" th:label="${item.countryName}" />
+              </span>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>About you :</td>
+          <td>
+            <textarea th:field="*{aboutYou}" class="form-control" />
+          </td>
+        </tr>
+        <tr>
+          <td>Community :</td>
+          <td class="form-check">
+            <ul>
+              <li th:each="checkboxItem : "${communityList}"">
+                <input th:value="${checkboxItem}" type="checkbox" id="#ids.seq('communityList')" name="communityList" />
+                <label th:text="${checkboxItem.noLabel}" th:for="#ids.prev('communityList')" />
+              </li>
+              <br />
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td />
+          <td>
+            <div class="form-check">
+              <label for="mailingList" path="mailingList" class="form-check-label">
+                <input th:field="*{mailingList}" type="checkbox" class="form-check-input" />
+                Would you like to join our mailinglist?
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="Register" class="btn btn-pill btn-primary form-control-lg" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

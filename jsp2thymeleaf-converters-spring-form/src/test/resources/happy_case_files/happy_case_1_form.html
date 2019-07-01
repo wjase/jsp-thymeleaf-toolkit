@@ -1,0 +1,11 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd"> <html
+  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+
+<head>
+  <title>Registration Page</title>
+</head>
+
+<body> <span th:text="${pageParams.put('post_url',@{/somevalue})" />
+  <form th:object="user" method="POST" commandName="user" th:action="@{${post_url}}">
+    <ul class=""
+      th:if="${#fields.hasErrors('*')}" style=""> <li th:each="err : ${#fields.errors('*')}" th:text="${err}" /> </ul> <table> <tr> <td>User Name :</td> <td> <input th:field="*{name}" style="display:inherited;" /> </td> </tr> <tr> <td>Password :</td> <td> <input th:field="*{password}" type="password" /> </td> </tr> <tr> <td>Gender :</td> <td> <input th:field="*{gender}" type="radio" value="M" /> <label for="gender">M</label> <input th:field="*{gender}" type="radio" value="F" /> <label for="gender">F</label> </td> </tr> <tr> <td>Country :</td> <td> <select th:field="country"> <option value="0" label="Select" /> <span th:each="item : countryList"> <option th:value="${item.countryId}" th:label="${item.countryName}" /> </span> </select> </td> </tr> <tr> <td>About you :</td> <td> <textarea th:field="*{aboutYou}" /> </td> </tr> <tr> <td>Community :</td> <td> <ul> <li th:each="checkboxItem : ${communityList}"> <input type="checkbox" id="#ids.seq('communityList')" th:value="${checkboxItem}" name="communityList" /> <label th:text="${checkboxItem.noLabel}" th:for="#ids.prev('communityList')" /> </li> </ul> </td> </tr> <tr> <td /> <td> <input th:field="*{mailingList}" /> <label for="mailingList">Would you like to join our mailing list?</label> </td> </tr> <tr> <td colspan="2"> <input type="submit" value="Register" /> </td> </tr> </table> </form> </body> </html> 

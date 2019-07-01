@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <h3>foreach - Form 2 (Range iterator)</h3>
+      <pre>&lt;c:foreach var="item" begin="2" end="10" step="2" varStatus="status"&gt;
+This is item \${item}. Status is \${status.index}&lt;br/&gt;
+&lt;/c:foreach&gt;</pre>
+      <span th:each="item,status : ${#numbers.sequence(2,10,2)}">
+        This is item
+        <span th:text="${item}" />
+        . Status is
+        <span th:text="${status.index}" />
+        <br />
+      </span>
+    </th:block>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.cybernostics.spring.thymeleaf.jsp.config.JspThymeleafInteropAutoConfiguration,\
+com.cybernostics.spring.thymeleaf.jsp.config.SpringTemplateEngineAutoConfiguration

@@ -1,0 +1,17 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <th:block th:fragment="content">
+      <h3>c:if</h3>
+      <pre>&lt;c:if test="\${true}"&gt;
+&lt;span id="shouldBeShown" &gt;That Worked!&lt;/span&gt;
+&lt;/c:if&gt;</pre>
+      <span th:if="${true}">
+        <span id="shouldBeShown">That Worked!</span>
+      </span>
+    </th:block>
+  </body>
+</html>

@@ -1,0 +1,545 @@
+package com.yourcompany;
+
+import com.cybernostics.jsp2thymeleaf.api.common.AvailableConverters;
+import static com.cybernostics.jsp2thymeleaf.api.common.Namespaces.TH;
+import static com.cybernostics.jsp2thymeleaf.api.common.Namespaces.XMLNS;
+import com.cybernostics.jsp2thymeleaf.api.common.taglib.ConverterRegistration;
+import static com.cybernostics.jsp2thymeleaf.api.elements.JspTagElementConverter.converterFor;
+import com.cybernostics.jsp2thymeleaf.api.elements.NewAttributeBuilder;
+import com.cybernostics.jsp2thymeleaf.api.elements.TagConverterSource;
+
+/**
+ *
+ * @author jason
+ */
+public class FormTldConverterRegistration implements ConverterRegistration
+{
+
+    @Override
+    public void run()
+    {
+        final TagConverterSource formTaglibConverterSource = new TagConverterSource()
+                .withConverters(
+                        /* Renders an HTML 'form' tag and exposes a binding path to inner tags
+		for binding.  */
+                        converterFor("form")
+                            // attributes
+                                // id - HTML Standard Attribute
+                                // name - HTML Standard Attribute - added for backwards compatibility cases
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // modelAttribute - Name of the model attribute under which the form object is exposed. Defaults to 'command'.
+                                // commandName - DEPRECATED: Use "modelAttribute" instead.
+                                // action - HTML Required Attribute
+                                // servletRelativeAction - Action reference to be appended to the current servlet path
+                                // method - HTML Optional Attribute
+                                // target - HTML Optional Attribute
+                                // enctype - HTML Optional Attribute
+                                // acceptCharset - Specifies the list of character encodings for input data that is accepted by the server processing this form. The value is a space- and/or comma-delimited list of charset values. The client must interpret this list as an exclusive-or list, i.e. the server is able to accept any single character encoding per entity received.
+                                // onsubmit - HTML Event Attribute
+                                // onreset - HTML Event Attribute
+                                // autocomplete - Common Optional Attribute
+                                // methodParam - The parameter name used for HTTP methods other then GET and POST. Default is '_method'.
+                                .withNewName("form", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'input' tag with type 'text' using the bound value.  */
+                        converterFor("input")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // size - HTML Optional Attribute
+                                // maxlength - HTML Optional Attribute
+                                // alt - HTML Optional Attribute
+                                // onselect - HTML Event Attribute
+                                // readonly - HTML Optional Attribute. Setting the value of this attribute to 'true' will make the HTML element readonly.
+                                // autocomplete - Common Optional Attribute
+                                .withNewName("input", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'input' tag with type 'password' using the bound value.  */
+                        converterFor("password")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // size - HTML Optional Attribute
+                                // maxlength - HTML Optional Attribute
+                                // alt - HTML Optional Attribute
+                                // onselect - HTML Event Attribute
+                                // readonly - HTML Optional Attribute. Setting the value of this attribute to 'true' will make the HTML element readonly.
+                                // autocomplete - Common Optional Attribute
+                                // showPassword - Is the password value to be shown? Defaults to false.
+                                .withNewName("password", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'input' tag with type 'hidden' using the bound value.  */
+                        converterFor("hidden")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                .withNewName("hidden", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'select' element. Supports data binding to the
+		selected option.  */
+                        converterFor("select")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // items - The Collection, Map or array of objects used to generate the inner 'option' tags
+                                // itemValue - Name of the property mapped to 'value' attribute of the 'option' tag
+                                // itemLabel - Name of the property mapped to the inner text of the 'option' tag
+                                // size - HTML Optional Attribute
+                                // multiple - HTML Optional Attribute
+                                .withNewName("select", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders a single HTML 'option'.
+		Sets 'selected' as appropriate based on bound value.  */
+                        converterFor("option")
+                            // attributes
+                                // id - HTML Standard Attribute
+                                // value - HTML Optional Attribute
+                                // label - HTML Optional Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                .withNewName("option", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders a list of HTML 'option' tags. Sets 'selected' as appropriate
+		based on bound value.  */
+                        converterFor("options")
+                            // attributes
+                                // id - HTML Standard Attribute
+                                // items - The Collection, Map or array of objects used to generate the inner 'option' tags. This attribute is required unless the containing select's property for data binding is an Enum, in which case the enum's values are used.
+                                // itemValue - Name of the property mapped to 'value' attribute of the 'option' tag
+                                // itemLabel - Name of the property mapped to the inner text of the 'option' tag
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                .withNewName("options", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'input' tag with type 'radio'.  */
+                        converterFor("radiobutton")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // value - HTML Optional Attribute
+                                // label - Value to be displayed as part of the tag
+                                .withNewName("radiobutton", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders multiple HTML 'input' tags with type 'radio'.  */
+                        converterFor("radiobuttons")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // items - The Collection, Map or array of objects used to generate the 'input' tags with type 'radio'. This attribute is required unless the property for data binding is an Enum, in which case the enum's values are used.
+                                // itemValue - Name of the property mapped to 'value' attribute of the 'input' tags with type 'radio'
+                                // itemLabel - Value to be displayed as part of the 'input' tags with type 'radio'
+                                // delimiter - Delimiter to use between each 'input' tag with type 'radio'. There is no delimiter by default.
+                                // element - Specifies the HTML element that is used to enclose each 'input' tag with type 'radio'. Defaults to 'span'.
+                                .withNewName("radiobuttons", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'input' tag with type 'checkbox'.  */
+                        converterFor("checkbox")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // value - HTML Optional Attribute
+                                // label - Value to be displayed as part of the tag
+                                .withNewName("checkbox", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders multiple HTML 'input' tags with type 'checkbox'.  */
+                        converterFor("checkboxes")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // items - The Collection, Map or array of objects used to generate the 'input' tags with type 'checkbox'
+                                // itemValue - Name of the property mapped to 'value' attribute of the 'input' tags with type 'checkbox'
+                                // itemLabel - Value to be displayed as part of the 'input' tags with type 'checkbox'
+                                // delimiter - Delimiter to use between each 'input' tag with type 'checkbox'. There is no delimiter by default.
+                                // element - Specifies the HTML element that is used to enclose each 'input' tag with type 'checkbox'. Defaults to 'span'.
+                                .withNewName("checkboxes", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'textarea'.  */
+                        converterFor("textarea")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used when the bound field has errors.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // onfocus - HTML Event Attribute
+                                // onblur - HTML Event Attribute
+                                // onchange - HTML Event Attribute
+                                // accesskey - HTML Standard Attribute
+                                // rows - HTML Required Attribute
+                                // cols - HTML Required Attribute
+                                // onselect - HTML Event Attribute
+                                // readonly - HTML Optional Attribute. Setting the value of this attribute to 'true' will make the HTML element readonly.
+                                .withNewName("textarea", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders field errors in an HTML 'span' tag.  */
+                        converterFor("errors")
+                            // attributes
+                                // path - Path to errors object for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // delimiter - Delimiter for displaying multiple error messages. Defaults to the HTML br tag.
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                // element - Specifies the HTML element that is used to render the enclosing errors.
+                                .withNewName("errors", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders a form field label in an HTML 'label' tag.  */
+                        converterFor("label")
+                            // attributes
+                                // path - Path to property for data binding
+                                // id - HTML Standard Attribute
+                                // htmlEscape - Enable/disable HTML escaping of rendered values.
+                                // for - HTML Standard Attribute
+                                // cssClass - Equivalent to "class" - HTML Optional Attribute.
+                                // cssErrorClass - Equivalent to "class" - HTML Optional Attribute. Used only when errors are present.
+                                // cssStyle - Equivalent to "style" - HTML Optional Attribute
+                                // lang - HTML Standard Attribute
+                                // title - HTML Standard Attribute
+                                // dir - HTML Standard Attribute
+                                // tabindex - HTML Standard Attribute
+                                // onclick - HTML Event Attribute
+                                // ondblclick - HTML Event Attribute
+                                // onmousedown - HTML Event Attribute
+                                // onmouseup - HTML Event Attribute
+                                // onmouseover - HTML Event Attribute
+                                // onmousemove - HTML Event Attribute
+                                // onmouseout - HTML Event Attribute
+                                // onkeypress - HTML Event Attribute
+                                // onkeyup - HTML Event Attribute
+                                // onkeydown - HTML Event Attribute
+                                .withNewName("label", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                ,
+                        /* Renders an HTML 'button' tag.  */
+                        converterFor("button")
+                            // attributes
+                                // id - HTML Standard Attribute
+                                // name - The name attribute for the HTML button tag
+                                // value - The value attribute for the HTML button tag
+                                // disabled - HTML Optional Attribute. Setting the value of this attribute to 'true' will disable the HTML element.
+                                .withNewName("button", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                
+                );
+
+        AvailableConverters.addConverter("http://www.springframework.org/tags/form", formTaglibConverterSource);
+    }
+
+}

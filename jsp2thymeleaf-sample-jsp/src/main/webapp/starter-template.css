@@ -1,0 +1,42 @@
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.marketing_header{
+    background-image: url(images/mountain_panorama.png);
+        
+}
+
+.dark_text_highlight{
+    background-color: rgba(0,0,0,0.3);
+    font-weight: bolder;
+    color: wheat; 
+}
+
+.centred{
+    text-align: center;
+}
+
+body{
+    background-color: rgba(0,0,1,0.3);
+    padding-top: 0px;
+}
+nav{
+    background-color: rgba(0,0,1,0.1);
+}
+
+pre{
+    background-color: darkslategrey;
+    color:wheat;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.nav{
+    color:whitesmoke;
+}

@@ -1,0 +1,49 @@
+#macro( commaIfNeeded $count $len )
+#if($count!=$len),#end
+#end
+
+package ${packageName};
+
+import com.cybernostics.jsp2thymeleaf.api.common.AvailableConverters;
+import static com.cybernostics.jsp2thymeleaf.api.common.Namespaces.TH;
+import static com.cybernostics.jsp2thymeleaf.api.common.Namespaces.XMLNS;
+import com.cybernostics.jsp2thymeleaf.api.common.taglib.ConverterRegistration;
+import static com.cybernostics.jsp2thymeleaf.api.elements.JspTagElementConverter.converterFor;
+import com.cybernostics.jsp2thymeleaf.api.elements.NewAttributeBuilder;
+import com.cybernostics.jsp2thymeleaf.api.elements.TagConverterSource;
+
+/**
+ *
+ * @author jason
+ */
+public class ${stringutils.capitalizeFirstLetter($taglib.name)}TldConverterRegistration implements ConverterRegistration
+{
+
+    @Override
+    public void run()
+    {
+        final TagConverterSource ${taglib.name}TaglibConverterSource = new TagConverterSource()
+                .withConverters(
+#set($tags = $taglib.tags)
+#set($size = $tags.size())
+#foreach ($tag in $tags)
+                        /* $tag.description  */
+                        converterFor("$tag.name")
+                            // attributes
+#foreach ($attribute in $tag.attributes)
+                                // $attribute.name - $attribute.description
+#end
+                                .withNewName("$tag.name", XMLNS)
+                                //.removesAtributes(#quotedList($tag.attributes))
+                                //.addsAttributes(NewAttributeBuilder.attributeNamed("object", TH)
+                                //      .withValue("fromFormats("${%{commandName}}"))//,
+                                //      .withNewTextContent("%{value!humanReadable}"),
+                                #commaIfNeeded($velocityCount $size)
+
+#end
+                );
+
+        AvailableConverters.addConverter("$taglib.uri", ${taglib.name}TaglibConverterSource);
+    }
+
+}
