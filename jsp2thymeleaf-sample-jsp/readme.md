@@ -1,6 +1,6 @@
-# JSP2Thmyeleaf Migration Sample Project - stage 0
+# JSP2Thmyeleaf Migration Sample Project
 
-## Stage 0 - Introduction
+## Introduction
 
 This guide shows the process for converting a JSP project to Thymeleaf using the JSP2Thymeleaf
 tool set and libraries. JSP2Thymeleaf provides both tools to convert JSP templates into Thymeleaf ones,
