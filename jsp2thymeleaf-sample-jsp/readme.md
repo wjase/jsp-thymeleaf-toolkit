@@ -6,14 +6,6 @@ This guide shows the process for converting a JSP project to Thymeleaf using the
 tool set and libraries. JSP2Thymeleaf provides both tools to convert JSP templates into Thymeleaf ones,
 and libraries to ease the mismatch in features between the two worlds.
 
-This project is done in stages using GIT. Each stage is checked in with a tag STEP-n with n starting
-at 0. By performing:
-
-    git checkout stage-0
-
-the file system is reset to the specified stage of migration. You can view diffs to
-see what has occurred in each stage.
-
 ## Preparation 
 
 So, you've been using JSP's since, forever, and they've served you well (pun intended).
@@ -27,7 +19,7 @@ tolerates, but no one would miss. Don't worry - there's a new kid on the block: 
 
 Why? Thymeleaf.
 
-It's shiny. It's new. It doesn't involve compiling code at runtime in a production environment.
+It's shiny. It's new(er). It doesn't involve compiling code at runtime in a production environment.
 
 If done right, designers can view templates that will render without needing a server.
 Plus, the folks at Spring have blessed it with simple setup and auto configuration in Spring applications.
@@ -115,13 +107,4 @@ So, how do we move our pages from JSP's to Thymeleaf? To answer this question, l
   # Finally remove the JSP related dependencies from your POM, and make yourself
     a nice hot cup of tea. Welcome to the future.
 
- * Where to now?
-    
-    Let's not get ahead of ourselves. The next stage, stage_1 shows is where we 
-    add the compatability library.
 
-    To go there now, type:
-
-    git checkout stage-1
-
-    and then refresh this file. The new bits will appear at the top.
